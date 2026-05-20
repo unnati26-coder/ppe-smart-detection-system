@@ -105,19 +105,6 @@ streamlit run app.py
 Add:
 ```text
 screenshots/detection-output.jpg
-```
-
-### Dashboard Preview
-Add:
-```text
-screenshots/dashboard.png
-```
-
-### Chatbot Preview
-Add:
-```text
-screenshots/chatbot.png
-```
 
 ---
 
