@@ -105,6 +105,7 @@ streamlit run app.py
 Add:
 ```text
 screenshots/detection-output.jpg
+```
 
 ---
 
@@ -112,8 +113,7 @@ screenshots/detection-output.jpg
 - CCTV integration
 - Cloud deployment
 - Multi-camera monitoring
-- Real-time safety alerts
-- Email/SMS notification system
+
 
 ---
 
