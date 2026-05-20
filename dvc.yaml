@@ -1,0 +1,19 @@
+stages:
+  detect:
+    cmd: python detect.py
+    deps:
+      - detect.py
+      - dataset.yaml
+      - indianworkers.mp4
+      - JapanPPE.mp4
+      - runs/                        # best.pt lives here
+    params:
+      - params.yaml:
+        - detect.conf_threshold
+        - detect.iou_threshold
+        - detect.model_path
+    outs:
+      - result/
+    metrics:
+      - metrics/eval_results.json:
+          cache: false

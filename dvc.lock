@@ -1,0 +1,41 @@
+schema: '2.0'
+stages:
+  detect:
+    cmd: python detect.py
+    deps:
+    - path: JapanPPE.mp4
+      hash: md5
+      md5: c778d94dec0f34a5203c26375f8c4ac7
+      size: 14115404
+    - path: dataset.yaml
+      hash: md5
+      md5: c4e3657e9c002ac676a1352a0b8ad869
+      size: 225
+    - path: detect.py
+      hash: md5
+      md5: 7ec3d3f07d9aa9f68c1fc34c7207e2e0
+      size: 12306
+    - path: indianworkers.mp4
+      hash: md5
+      md5: 7ee3057bdcda5a3a9f49737983b3487c
+      size: 7672559
+    - path: runs/
+      hash: md5
+      md5: 08bdc1d4bbfa94c2ea15bcbce61c5828.dir
+      size: 6252842
+      nfiles: 1
+    params:
+      params.yaml:
+        detect.conf_threshold: 0.25
+        detect.iou_threshold: 0.45
+        detect.model_path: runs/detect/ppe_detector/weights/best (1).pt
+    outs:
+    - path: metrics/eval_results.json
+      hash: md5
+      md5: e23ef9d0bbe5114b4abbbdf338be9a7d
+      size: 396
+    - path: result/
+      hash: md5
+      md5: 551cded866c54936102a07a8de95fcf9.dir
+      size: 196036511
+      nfiles: 2

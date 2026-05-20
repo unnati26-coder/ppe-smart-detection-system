@@ -1,0 +1,53 @@
+detect:
+  # Model
+  model_path: runs/detect/ppe_detector/weights/best (1).pt
+  img_size: 640
+
+  # Detection thresholds
+  conf_threshold: 0.25
+  iou_threshold: 0.45
+
+  # Dataset config (matches your dataset.yaml exactly)
+  data_yaml: ./data
+  train_path: images/train
+  val_path: images/val
+
+  # Your 10 PPE classes
+  nc: 10
+  names:
+    0: Hardhat
+    1: Mask
+    2: NO-Hardhat
+    3: NO-Mask
+    4: NO-Safety Vest
+    5: Person
+    6: Safety Cone
+    7: Safety Vest
+    8: machinery
+    9: vehicle
+
+  # Safety-critical thresholds (violations need higher sensitivity)
+  class_thresholds:
+    NO-Hardhat: 0.35       # lower conf = catch more violations
+    NO-Mask: 0.35
+    NO-Safety Vest: 0.35
+    Hardhat: 0.25
+    Mask: 0.25
+    Safety Vest: 0.25
+    Person: 0.20           # detect all people
+    Safety Cone: 0.30
+    machinery: 0.30
+    vehicle: 0.30
+
+  # Test sources
+  sources:
+    - indianworkers.mp4
+    - JapanPPE.mp4
+
+  # Quality gate — per class mAP50 minimums
+  quality_gate:
+    overall_mAP50: 0.60
+    critical_classes:          # must hit these or pipeline fails
+      NO-Hardhat: 0.55
+      NO-Mask: 0.55
+      NO-Safety Vest: 0.55
